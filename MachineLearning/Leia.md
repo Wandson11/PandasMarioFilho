@@ -17,3 +17,15 @@ onde train_X e train_y, são dados de treino, onde em média, contém 70% do con
 - variavel.predict(val_X)
 - Apresenta novo conceito:  MEAN ABSOLUTE ERROR, em que se busca a diferença entre os valores do predcit com o real (val_y): from sklearn.metrics import mean_absolute_error
 - mean_aboslute_error(val_y, variavel da predict)
+004 - Explicacao do que é overfitting e underfitting.
+- Overfitting, modelo em que cada elemento do conjunto de dados, terá a sua própria folha ou nós, remete a árvore com muita profundidade, e nao dará resultados bons;
+- Underfitting, modelo que é o inverso do over, pouca profundidade, resultados ruins tanto no treino quanto na validação.
+- Solução para qualquer um dos dois casos: max_leaf_nopes, onde é definido a quantidade de elementos que cada elemento/nós, vai ter, tendo-se assim, uma média.
+005 - Random Forest é uma alternativa ao modelo de decision tree, sendo o r.f. mais sofisticado na elaboração das médias.
+- Para chamar esse modelo, é parecido com o decision: from sklearn.ensemble import RandomForestRegressor
+- Nesse caso: variavel = RandomForestRegressor(random_state=x), é essencial repassar "random_state" como parâmetro.
+- Explicando o funcionamento: sao criadas diversas arvores que receberam dados aleatórios e features aleatórias para fazer o cálculo.
+- Os demais procedimentos são os mesmos: variavel.fit(train_X, train_y); variavel.predict(val_X); mean_absolute_error(val_y, predict).
+- Tem commo definir a profundidade das árvores/números de árvores: RandomForestRegressor(n_estimators= x) (por padrao, são 100 árvores)
+- min_sample_leaf, é parecido com o max_leaf_nopes,porém, voce indica a quantidade por nó. É bom usar em datasets pequeno min_sample_leaft = 2
+- Também pode ser alterado o máximo de features por árvore: max_features
